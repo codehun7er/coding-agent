@@ -1,0 +1,32 @@
+[commands]
+allow = [
+    "python3 -m unittest -v",
+    "python3 -m unittest",
+    "ls",
+    "ls -la",
+]
+deny = [
+    "rm",
+    "bash",
+    "sh",
+    "python3 -c",
+    "git push",
+    "curl",
+]
+
+[directories]
+allow = ["."]
+deny = ["private", ".git"]
+
+[limits]
+bash_timeout_seconds = 30
+tool_output_bytes = 20000
+
+[budget]
+model_requests = 40
+tool_calls = 80
+side_effects = 20
+output_bytes = 200000
+
+[journal]
+ignore = ["__pycache__", "*.pyc", ".DS_Store"]
